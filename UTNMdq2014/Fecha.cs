@@ -15,9 +15,8 @@ namespace UTNMdq2014
         public int Mes { protected set; get; }
         public int Año { protected set; get; }
 
-        public Fecha()
+        public Fecha() : this(0, 0, 0)
         {
-            Dia = Mes = Año = 0;
         }
 
         public Fecha(int dia, int mes, int año)
@@ -27,11 +26,8 @@ namespace UTNMdq2014
             Año = año;
         }
 
-        public Fecha(Fecha otra)
+        public Fecha(Fecha otra) : this(otra.Dia, otra.Mes, otra.Año)
         {
-            Dia = otra.Dia;
-            Mes = otra.Mes;
-            Año = otra.Año;
         }
 
         public override string ToString()
