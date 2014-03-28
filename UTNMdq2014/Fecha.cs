@@ -39,12 +39,12 @@ namespace UTNMdq2014
             return Dia + "/" + Mes + "/" + Año;
         }
 
-        public override Fecha operator+ (Fecha a, Fecha b)
+        public static Fecha operator+ (Fecha a, Fecha b)
         {
             return new Fecha(a.Dia + b.Dia, a.Mes + b.Mes, a.Año + b.Año);
         }
 
-        public override Fecha operator- (Fecha a, Fecha b)
+        public static Fecha operator- (Fecha a, Fecha b)
         {
             return new Fecha(a.Dia - b.Dia, a.Mes - b.Mes, a.Año - b.Año);
         }
@@ -53,7 +53,7 @@ namespace UTNMdq2014
         /// Compara el dia, mes y año entre dos Fechas.
         /// </summary>
         /// <returns>Verdadero o falso en caso de que sean o no iguales.</returns>
-        public bool Equal (Fecha otra)
+        public bool Equals (Fecha otra)
         {
             return (Dia == otra.Dia &&
                      Mes == otra.Mes &&
