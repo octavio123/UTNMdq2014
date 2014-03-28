@@ -9,9 +9,42 @@ namespace UTNMdq2014
     {
         private string nombre, email, telefono;
 
-        public string Telefono { get { return telefono; } protected set { telefono = value; } }
-        public string Email { get { return email; } protected set { email = value; } }
-        public string Nombre { get; protected set; }
+        public string Telefono 
+        { 
+            get { return telefono; }
+            protected set
+            {
+                if (ValidadorPersona.EsTelefonoValido(value))
+                    telefono = value;
+                else
+                    throw new ArgumentException("telefono", "El valor especificado es inválido.");
+            }
+
+        }
+
+        public string Email 
+        { 
+            get { return email; } 
+            protected set 
+            { 
+                if (ValidadorPersona.EsEmailValido(value))
+                    email = value; 
+                else
+                    throw new ArgumentException("email", "El valor especificado es inválido.");
+            }
+ 
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            protected set
+            {
+                if (ValidadorPersona.EsNombreValido(value))
+                    nombre = value;
+                else
+                    throw new ArgumentException("nombre", "El valor especificado es inválido.");
+            }
+        }
         public Fecha Nacimiento { get; protected set; }
         public Fecha Ingreso { get; protected set; }
 
@@ -36,6 +69,13 @@ namespace UTNMdq2014
         public override string ToString()
         {
             return Nombre + " " + Telefono + " " + Email;
+        }
+
+        private bool DatosValidos()
+        {
+            return (!string.IsNullOrWhiteSpace(Nombre) &&
+                    !string.IsNullOrWhiteSpace(Email) &&
+                    !string.IsNullOrWhiteSpace(Telefono));
         }
     }
 }
