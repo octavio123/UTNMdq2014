@@ -55,12 +55,5 @@ namespace UTNMdq2014
                      Mes == otra.Mes &&
                      Año == otra.Año);
         }
-
-        public static bool EsFechaValida(Fecha fecha)
-        {
-            return ( (fecha.Dia > 0 && fecha.Dia <= 31) &&
-                     (fecha.Mes > 0 && fecha.Mes <= 12) &&
-                      fecha.Año > 0);
-        }
     }
 }
