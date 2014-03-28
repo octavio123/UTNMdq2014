@@ -8,13 +8,34 @@ namespace UTNMdq2014
     public class Profesor
     {
         private string nombre, email, telefono;
-        private Fecha f_nacim, f_ingreso; //Fecha de Nacimiento y Fecha de Ingreso como trabajador
 
+        public string Telefono { get { return telefono; } protected set { telefono = value; } }
+        public string Email { get { return email; } protected set { email = value; } }
+        public string Nombre { get; protected set; }
+        public Fecha Nacimiento { get; protected set; }
+        public Fecha Ingreso { get; protected set; }
 
+        public Profesor() : this("", "", "", new Fecha(0, 0, 0), new Fecha(0, 0, 0))
+        {
+        }
+
+        public Profesor(string nombre, string telefono, string email = null, 
+                        Fecha nacimiento = null, Fecha ingreso = null)
+        {
+            Nombre = nombre;
+            Telefono = telefono;
+            Email = email;
+            Nacimiento = nacimiento;
+            Ingreso = ingreso;
+        }
+
+        public Profesor(Profesor otro) : this(otro.Nombre, otro.Telefono, otro.Email, otro.Nacimiento, otro.Ingreso)
+        {
+        }
 
         public override string ToString()
         {
-            return base.ToString();
+            return Nombre + " " + Telefono + " " + Email;
         }
     }
 }
