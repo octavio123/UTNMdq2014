@@ -5,45 +5,38 @@ using System.Text;
 
 namespace UTNMdq2014
 {
+    /// <summary>
+    /// Contiene dia, mes y año.
+    /// </summary>
     class Fecha
     {
-        /// <summary>
-        /// La clase Fecha contiene el dia (dd), mes(mm) y año(aaaa) 
-        /// </summary>
-       
-        int dd, mm, aaaa;
-
-        public int Dd { set; get; }
-        public int Mm { set; get; }
-        public int Aaaa { set; get; }
+        
+        public int Dia { set; get; }
+        public int Mes { set; get; }
+        public int Año { set; get; }
 
         public Fecha()
         {
-            this.dd = 0;
-            this.mm = 0;
-            this.aaaa = 0000;
+            Dia = Mes = Año = 0;
         }
 
-        public Fecha(int d, int m, int a)
+        public Fecha(int dia, int mes, int año)
         {
-            this.dd = d;
-            this.mm = m;
-            this.aaaa = a;
+            Dia = dia;
+            Mes = mes;
+            Año = año;
         }
 
-        public Fecha(Fecha a)
+        public Fecha(Fecha otra)
         {
-            this.dd = a.dd;
-            this.mm = a.mm;
-            this.aaaa = a.aaaa;
+            Dia = otra.Dia;
+            Mes = otra.Mes;
+            Año = otra.Año;
         }
 
         public override string ToString()
         {
-            ///Devuelve la cadena dd/mm/aaaa. Ej: 25/5/1810
-            ///
-
-            return dd.ToString() + "/" + mm.ToString() + "/" + aaaa.ToString();
+            return Dia + "/" + Mes + "/" + Año;
         }
 
     }
