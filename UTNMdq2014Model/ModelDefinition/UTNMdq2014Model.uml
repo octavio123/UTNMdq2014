@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="80767f79-0f09-4874-a838-08891c2bfa4d"
   name="UTNMdq2014Model" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -17,28 +17,513 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="c0b26403-f9c4-42a3-bdea-13baecbae14e"
+        name="Alumno"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="21fa0abb-e9ac-4c7f-8d36-f1408d651092"
+            isDerived="false"
+            sourceEndRoleName="Alumno"
+            targetEndRoleName="Legajo"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8121b6ff-725e-4718-9c7c-f03fb40b673a"
+              LastKnownName="Legajo"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ffe645b-a482-40c1-91d0-4e2462067153"
+                  name="Alumno"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8edc37d6-7724-494a-a53b-d762cb4bedff"
+                  name="Legajo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4c1e5c46-6ed6-418b-90b7-fb203a176860"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="63383dd9-49ec-46c5-9f94-1609332aced4"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8121b6ff-725e-4718-9c7c-f03fb40b673a"
+        name="Legajo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="b16aa3c2-f813-4166-8fcf-fccc8dfa2c41"
+            isDerived="false"
+            sourceEndRoleName="Legajo"
+            targetEndRoleName="PlanEstudio"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d0ff455d-0266-4a9e-8c6e-bfba8b692b56"
+              LastKnownName="PlanEstudio"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="292edf7f-bc8a-468b-8ef1-b126428d80fb"
+                  name="Legajo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="01b616d6-d3c7-4e9c-8587-6735691b040c"
+                  name="PlanEstudio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9fbe0ff4-80d3-4682-97b9-49a2bbefdfa7"
+        name="Materia"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d0ff455d-0266-4a9e-8c6e-bfba8b692b56"
+        name="PlanEstudio"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="a7e635fd-fdaf-47c5-bbde-2f6c15896ed1"
+            isDerived="false"
+            sourceEndRoleName="PlanEstudio"
+            targetEndRoleName="Materia"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9fbe0ff4-80d3-4682-97b9-49a2bbefdfa7"
+              LastKnownName="Materia"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="30c83577-2f17-42ed-949e-20814d6b1d3a"
+                  name="PlanEstudio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ab20b78-fc77-47fd-88b2-1365720293ab"
+                  name="Materia"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="264013d6-8702-42b4-9ef0-f9b36fc943be"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="3fbabf2b-73cc-4752-9b92-ed59a3031e32"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="981832f2-3f42-474b-860c-8631fba47d72"
+            isDerived="false"
+            sourceEndRoleName="PlanEstudio"
+            targetEndRoleName="Carrera"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e2de5eb0-ab23-4feb-9dc2-1e127cc12829"
+              LastKnownName="Carrera"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="486d64e1-33dd-47e9-87e5-c0099c8e83fb"
+                  name="PlanEstudio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61608ebb-bcc9-4f8e-8038-eed02e814f1f"
+                  name="Carrera"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9041d2e3-d110-4bfe-a26e-04d2090f490b"
+        name="Profesor"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="991bbcf9-c9bb-41eb-ba41-a1d74c7985b6"
+            isDerived="false"
+            sourceEndRoleName="Profesor"
+            targetEndRoleName="Materia"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9fbe0ff4-80d3-4682-97b9-49a2bbefdfa7"
+              LastKnownName="Materia"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f004cf21-63e0-4e71-9d44-f122e0e439a9"
+                  name="Profesor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb16c199-f1ee-4411-924d-10222e2856bc"
+                  name="Materia"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="db285788-37a9-42b1-b6c0-da28f503d268"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="45096d0d-fb33-42cc-9707-ab6d3d09ecce"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3e5512cc-3c33-41a3-82f7-f2af1ae0e0bd"
+            isDerived="false"
+            sourceEndRoleName="Profesor"
+            targetEndRoleName="Comision"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="777395a0-fd41-4094-8720-89b4e3e61b44"
+              LastKnownName="Comision"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c8c3a40-85aa-4bd3-a0af-00c84abde936"
+                  name="Profesor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b000588a-8e8d-4355-b137-7938e9a7b493"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ecf38f7f-3d79-4f6b-99ed-9185db2752b0"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="45d2f23c-9186-4c31-8d58-01f5c5fb69a0"
+                  name="Comision"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3189a55e-9598-4d37-a522-2337dc77a9cb"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2683b9ca-9333-49c9-90d2-ec0cfad82355"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5fe62086-04f0-481c-9fd6-cc5189124941"
+        name="Usuario"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e2de5eb0-ab23-4feb-9dc2-1e127cc12829"
+        name="Carrera"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bb88957a-741d-4642-82a4-91f3271ba8db"
+        name="GrillaHoraria"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="98771036-0246-49a9-811d-32c1015c68ce">
+            <classMoniker
+              Id="d0ff455d-0266-4a9e-8c6e-bfba8b692b56"
+              LastKnownName="PlanEstudio"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="777395a0-fd41-4094-8720-89b4e3e61b44"
+        name="Comision"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="6e9a6d8e-0493-4e92-9d86-97894d7152b5"
+            isDerived="false"
+            sourceEndRoleName="Comision"
+            targetEndRoleName="GrillaHoraria"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="bb88957a-741d-4642-82a4-91f3271ba8db"
+              LastKnownName="GrillaHoraria"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="16906733-5ab5-4b7d-8a05-2baed6909c28"
+                  name="Comision"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc952739-8492-4591-8a5b-a38e86455563"
+                  name="GrillaHoraria"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="af7025b7-e398-4f38-88b1-b36ed718043a"
+            isDerived="false"
+            sourceEndRoleName="Comision"
+            targetEndRoleName="Alumno"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c0b26403-f9c4-42a3-bdea-13baecbae14e"
+              LastKnownName="Alumno"
+              LastKnownLocation="UTNMdq2014Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="92617294-e105-4cf6-827c-02e9b5763ade"
+                  name="Comision"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9fb589ef-47a8-45a1-878a-0424f4e43d6d"
+                  name="Alumno"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5bc66244-b95d-4027-8f46-f14029d4e543"
+                      name="Lower"
+                      value="n" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="65b16068-5447-4b4d-b8f4-5ad0edfd41e9"
+                      name="Upper"
+                      value="n" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
     name="Boolean"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
     name="String"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
     name="UnlimitedNatural"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
 </modelStoreModel>
