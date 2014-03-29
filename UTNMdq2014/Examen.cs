@@ -7,6 +7,8 @@ namespace UTNMdq2014
 {
     class Examen
     {
-        public int Nota { get; set; }
+        public int Nota { get; protected set; }
+
+        public bool Parcial { get; protected set; }
     }
 }
