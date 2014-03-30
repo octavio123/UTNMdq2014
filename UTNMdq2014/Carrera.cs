@@ -8,6 +8,20 @@ namespace UTNMdq2014
     public class Carrera
     {
         PlanEstudio plan;
+
+        string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+            protected set
+            {
+                if (ValidadorPersona.EsNombreValido(value))
+                    nombre = value;
+                else
+                    throw new ArgumentException("nombre", "El valor especificado es inválido.");
+            }
+        }
+
         public PlanEstudio Plan
         {
             get;
