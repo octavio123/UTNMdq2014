@@ -8,69 +8,65 @@ namespace UTNMdq2014
     public class Materia
     {
 
-        static const int notaMinima = 4;
-        static const int notaPromocion = 7;
+        static readonly int notaMinima = 4;
 
-        private List<Examen> examenes;
+        List<Examen> examenes;
+        
+        string nombre;
 
         int sumaNotas, // Suma de la nota de todos los examenes.
-            cantidadParciales, 
+            cantidadParciales,
             cantidadFinales,
-            parcialesAprobados;
+            parcialesAprobados,
+            finalesAprobados;
 
-        bool aprobada, promocionada;
+        Requisito[] condiciones;
+
+        #region Propiedades
+
+        /// <summary>
+        /// Calcula el promedio que se obtubo en la materia.
+        /// </summary>
+        public float Promedio
+        {
+            get { return ((float)sumaNotas / (cantidadFinales + cantidadFinales)); }
+        }
+
+        /// <summary>
+        /// Muestra si la materia se encuentra en condiciones de
+        /// ser cursada en base al <b>Requisito</b>.
+        /// </summary>
+        public bool CursadaHabilitada
+        {
+            get 
+            { 
+                return condiciones == null || condiciones.All(requisito => requisito.Cumplido);
+            }
+        }
+
+        /// <summary>
+        /// Determina si la materia se encuentra aprobada.
+        /// </summary>
         public bool Aprobada 
         { 
             get
             {
-                // Si no se encuentra aprobado
-                if (sumaNotas == 0)
-                {
-                    calcularSumaNotas();
-                    calcularEstadoMateria();
-                }
-                return aprobada;
+                return (Cursada && (cantidadFinales == finalesAprobados));
             }
         }
 
-        private void calcularEstadoMateria()
-        {
-            aprobada = (notaMinima <= sumaNotas / examenes.Count);
-            promocionada = (notaPromocion <= sumaNotas / examenes.Count);
-        }
-
-        private void calcularSumaNotas()
-        {
-                     sumaNotas =
-             cantidadParciales =
-            parcialesAprobados =
-            cantidadFinales = 0;
-
-            foreach (var examen in examenes)
-            {
-                if (examen.Parcial)
-                {
-                    cantidadParciales++;
-                    if (examen.Nota >= notaMinima)
-                        parcialesAprobados++;
-                }
-                else
-                    cantidadFinales++;
-
-                sumaNotas += examen.Nota;
-            }
-        }
-
+        /// <summary>
+        /// Determina si la materia se encuentra cursada.
+        /// </summary>
         public bool Cursada
         {
-            get 
+            get
             {
                 return ( CargaHoraria == HorasCursadas &&
                          parcialesAprobados == cantidadParciales );
             }
         }
 
-        string nombre;
         public string Nombre
         {
             get { return nombre; }
@@ -83,7 +79,95 @@ namespace UTNMdq2014
             }
         }
 
+        public int Año
+        {
+            get;
+            protected set;
+        }
+
         public int CargaHoraria { get; protected set; }
+
         public int HorasCursadas { get; protected set; }
+        
+        #endregion
+
+        private void calcularEstadoMateria()
+        {
+
+            sumaNotas =
+            cantidadParciales =
+            parcialesAprobados =
+            cantidadFinales =
+            finalesAprobados = 0;
+
+            foreach (var examen in examenes)
+            {
+                if (examen.Parcial)
+                {
+                    cantidadParciales++;
+                    if (examen.Nota >= notaMinima)
+                        parcialesAprobados++;
+                }
+                else
+                {
+                    cantidadFinales++;
+                    finalesAprobados += (examen.Nota >= notaMinima) ? 1 : 0;
+                }
+
+                sumaNotas += examen.Nota;
+            }
+        }
+
+
+        public Materia(string nombre, int año, int cargaHoraria, Requisito[] requisitos = null)
+        {
+            Nombre = nombre;
+            Año = año;
+            condiciones = requisitos;
+            CargaHoraria = cargaHoraria;
+
+            examenes = new List<Examen>();
+        }
+
+        public Materia (string nombre, int año, int cargaHoraria, Requisito requisito)
+            : this(nombre, año, cargaHoraria, new Requisito[] { requisito } )
+        {
+        }
+
+
+        public void AgregarExamen(Examen examen)
+        {
+            if (examen == null)
+                throw new ArgumentNullException("examen", "No debe ser nulo.");
+            if (examen.MateriaCorrespondiente != this)
+                throw new ArgumentException("examen", "Debe pertenecer a esta materia.");
+            
+            examenes.Add(examen);
+            calcularEstadoMateria();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder requisitoMensajeBuilder;
+            string mensajeRequisito = "";
+
+            if (condiciones != null)
+            {
+                requisitoMensajeBuilder = new StringBuilder();
+
+                foreach (var req in condiciones)
+                {
+                    requisitoMensajeBuilder.AppendLine(req.ToString());
+                }
+                mensajeRequisito = requisitoMensajeBuilder.ToString();
+            }
+            else
+            {
+                mensajeRequisito = " No tiene requisitos.";
+            }
+
+            return Nombre + "\nRequiere:" + mensajeRequisito;
+        }
+
     }
 }
