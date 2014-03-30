@@ -49,8 +49,10 @@ namespace UTNMdq2014
 
         public Fecha Nacimiento { get; protected set; }
         public Fecha Ingreso { get; protected set; }
-        
+
         #endregion
+
+        List<Legajo> legajos;
 
         public Alumno()
             : this("", "", "", new Fecha(0, 0, 0), new Fecha(0, 0, 0))
@@ -60,12 +62,24 @@ namespace UTNMdq2014
         public Alumno(string nombre, string telefono, string email,
                       Fecha nacimiento, Fecha ingreso)
         {
+            legajos = new List<Legajo>();
         }
 
         public Alumno(Alumno otro)
             : this(otro.Nombre, otro.Telefono, otro.Email,
                    otro.Nacimiento, otro.Ingreso)
         {
+        }
+
+        public void AñadirLegajo(Legajo legajo)
+        {
+            if (legajo == null)
+            {
+                string message = "El legajo a agregar no puede ser nulo.";
+                throw new ArgumentNullException("legajo", message);
+            }
+
+            legajos.Add(legajo);
         }
     }
 }
