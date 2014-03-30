@@ -38,8 +38,8 @@ namespace UTNMdq2014
         /// <summary>
         /// Establece un requisito.
         /// </summary>
-        /// <param name="cursada"></param>
-        /// <param name="aprobada"></param>
+        /// <param name="cursada">Debe encontrarse cursada la materia.</param>
+        /// <param name="aprobada">Debe encontrarse aprobada la materia.</param>
         public Requisito(Materia materia, bool cursada, bool aprobada)
         {
             this.materia = materia;
