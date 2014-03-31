@@ -7,11 +7,16 @@ namespace UTNMdq2014.Models
 {
     public class Examen
     {
+        public int ExamenId { get; set; }
+
         public int Nota { get; protected set; }
 
         public bool Parcial { get; protected set; }
 
         public Materia MateriaCorrespondiente { get; protected set; }
+
+        public Examen() : this(new Materia(), 0, false)
+        { }
 
         public Examen (Materia materia, int nota, bool parcial)
         {
