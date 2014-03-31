@@ -7,6 +7,8 @@ namespace UTNMdq2014.Models
 {
     public class Carrera
     {
+        public int CarreraId { get; set; }
+
         string nombre;
         public string Nombre
         {
