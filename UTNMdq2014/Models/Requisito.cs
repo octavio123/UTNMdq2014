@@ -16,6 +16,8 @@ namespace UTNMdq2014.Models
 
         Materia materia;
 
+        public int RequisitoId { get; set; }
+
         public virtual IList<Materia> MATERIA { get; set; }
 
         /// <summary>
