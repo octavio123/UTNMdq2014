@@ -12,9 +12,9 @@ namespace UTNMdq2014.Models
     {
         public int FechaId { get; set; }
 
-        public int Dia { protected set; get; }
-        public int Mes { protected set; get; }
-        public int Año { protected set; get; }
+        public int Dia { set; get; }
+        public int Mes { set; get; }
+        public int Año { set; get; }
 
         public Fecha() : this(1, 1, 1)
         {
