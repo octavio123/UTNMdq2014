@@ -8,5 +8,6 @@ namespace UTNMdq2014.Models
     public class Legajo
     {
         public int LegajoId { get; set; }
+        public PlanEstudio Plan { get; set; }
     }
 }
