@@ -48,9 +48,9 @@ namespace UTNMdq2014.Models
             }
         }
 
-        public Fecha Nacimiento { get; protected set; }
+        public Fecha Nacimiento { get; set; }
         
-        public Fecha Ingreso { get; protected set; }
+        public Fecha Ingreso { get; set; }
 
         #endregion
 
