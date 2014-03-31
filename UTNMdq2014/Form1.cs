@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using UTNMdq2014.Models;
 
 namespace UTNMdq2014
 {
@@ -28,6 +29,15 @@ namespace UTNMdq2014
             }
 
             textBox.Text = materiaInfo.ToString();
+
+            FacultadDbContext dbContext = new FacultadDbContext();
+
+            foreach(var alumno in dbContext.Alumnos)
+            {
+                textBox.Text += alumno + "\n";
+            }
+
+            dbContext.Dispose();
         }
     }
 }
