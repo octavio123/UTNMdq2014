@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -10,8 +11,6 @@ namespace UTNMdq2014.Models
 
         static readonly int notaMinima = 4;
 
-        List<Examen> examenes;
-        
         string nombre;
 
         int sumaNotas, // Suma de la nota de todos los examenes.
@@ -20,9 +19,14 @@ namespace UTNMdq2014.Models
             parcialesAprobados,
             finalesAprobados;
 
-        Requisito[] condiciones;
+        
 
         #region Propiedades
+
+        public List<Requisito> Condiciones { get; set; }
+        public List<Examen> Examenes { get; set; }
+
+        public int MateriaId { get; set; }
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
@@ -40,7 +44,7 @@ namespace UTNMdq2014.Models
         {
             get 
             { 
-                return condiciones == null || condiciones.All(requisito => requisito.Cumplido);
+                return Condiciones == null || Condiciones.All(requisito => requisito.Cumplido);
             }
         }
 
@@ -100,7 +104,7 @@ namespace UTNMdq2014.Models
             cantidadFinales =
             finalesAprobados = 0;
 
-            foreach (var examen in examenes)
+            foreach (var examen in Examenes)
             {
                 if (examen.Parcial)
                 {
@@ -118,19 +122,22 @@ namespace UTNMdq2014.Models
             }
         }
 
+        public Materia() : this("Indefinido", 0, 0)
+        {
+        }
 
-        public Materia(string nombre, int año, int cargaHoraria, Requisito[] requisitos = null)
+        public Materia(string nombre, int año, int cargaHoraria, List<Requisito> requisitos = null)
         {
             Nombre = nombre;
             Año = año;
-            condiciones = requisitos;
+            Condiciones = requisitos;
             CargaHoraria = cargaHoraria;
 
-            examenes = new List<Examen>();
+            Examenes = new List<Examen>();
         }
 
         public Materia (string nombre, int año, int cargaHoraria, Requisito requisito)
-            : this(nombre, año, cargaHoraria, new Requisito[] { requisito } )
+            : this(nombre, año, cargaHoraria, new List<Requisito>(new Requisito[] { requisito }))
         {
         }
 
@@ -142,7 +149,7 @@ namespace UTNMdq2014.Models
             if (examen.MateriaCorrespondiente != this)
                 throw new ArgumentException("examen", "Debe pertenecer a esta materia.");
             
-            examenes.Add(examen);
+            Examenes.Add(examen);
             calcularEstadoMateria();
         }
 
@@ -151,11 +158,11 @@ namespace UTNMdq2014.Models
             StringBuilder requisitoMensajeBuilder;
             string mensajeRequisito = "";
 
-            if (condiciones != null)
+            if (Condiciones != null)
             {
                 requisitoMensajeBuilder = new StringBuilder();
 
-                foreach (var req in condiciones)
+                foreach (var req in Condiciones)
                 {
                     requisitoMensajeBuilder.AppendLine(req.ToString());
                 }
