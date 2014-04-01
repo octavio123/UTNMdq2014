@@ -23,10 +23,13 @@ namespace UTNMdq2014.Models
 
         #region Propiedades
 
-        public List<Requisito> Condiciones { get; set; }
-        public List<Examen> Examenes { get; set; }
-
         public int MateriaId { get; set; }
+        public virtual PlanEstudio Plan { get; set; }
+        public virtual ICollection<Requisito> Requisitos { get; set; }
+        public virtual ICollection<Examen> Examenes { get; set; }
+
+        
+
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
@@ -44,7 +47,7 @@ namespace UTNMdq2014.Models
         {
             get 
             { 
-                return Condiciones == null || Condiciones.All(requisito => requisito.Cumplido);
+                return Requisitos == null || Requisitos.All(requisito => requisito.Cumplido);
             }
         }
 
@@ -130,15 +133,20 @@ namespace UTNMdq2014.Models
         {
             Nombre = nombre;
             Año = año;
-            Condiciones = requisitos;
+            Requisitos = requisitos;
             CargaHoraria = cargaHoraria;
 
             Examenes = new List<Examen>();
+            if (requisitos == null)
+                Requisitos = new List<Requisito>();
+            else
+                Requisitos = requisitos;
         }
 
         public Materia (string nombre, int año, int cargaHoraria, Requisito requisito)
-            : this(nombre, año, cargaHoraria, new List<Requisito>(new Requisito[] { requisito }))
+            : this(nombre, año, cargaHoraria)
         {
+            Requisitos.Add(requisito);
         }
 
 
@@ -158,11 +166,11 @@ namespace UTNMdq2014.Models
             StringBuilder requisitoMensajeBuilder;
             string mensajeRequisito = "";
 
-            if (Condiciones != null)
+            if (Requisitos != null && Requisitos.Count > 0)
             {
                 requisitoMensajeBuilder = new StringBuilder();
 
-                foreach (var req in Condiciones)
+                foreach (var req in Requisitos)
                 {
                     requisitoMensajeBuilder.AppendLine(req.ToString());
                 }
@@ -173,7 +181,7 @@ namespace UTNMdq2014.Models
                 mensajeRequisito = " No tiene requisitos.";
             }
 
-            return Nombre + "\nRequiere:" + mensajeRequisito;
+            return Nombre + " \nRequiere:" + mensajeRequisito;
         }
 
     }

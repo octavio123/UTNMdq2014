@@ -16,13 +16,18 @@ namespace UTNMdq2014
         {
             InitializeComponent();
 
-            FacultadDbContext dbContext = new FacultadDbContext();
-            textBox.Text += dbContext.Alumnos.ToList()[0] + "\n" +
-                            dbContext.Materias.ToList()[0] + "\n" +
-                            dbContext.Profesores.ToList()[0] + "\n" +
-                            dbContext.Legajos.ToList()[0] + "\n";
+            using (FacultadDbContext dbContext = new FacultadDbContext())
+            {
 
-            dbContext.Dispose();
+                textBox.Text += "Alumnos:\n" +
+                                dbContext.Alumnos.ToList()[0] + "\n" +
+                                "Profesores:\n" +
+                                dbContext.Profesores.ToList()[0] + "\n" +
+                                "Legajos:\n" +
+                                dbContext.Legajos.ToList()[0] + "\n";
+
+                textBox.Text += "\nMaterias:\n" /*+ dbContext.Materias.ToList()[0] */+ dbContext.Materias.ToList()[1];
+            }
         }
     }
 }

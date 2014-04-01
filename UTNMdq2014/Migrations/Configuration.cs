@@ -10,6 +10,7 @@ namespace UTNMdq2014.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "UTNMdq2014.FacultadDbContext";
         }
 

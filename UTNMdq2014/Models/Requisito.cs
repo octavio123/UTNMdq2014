@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -12,13 +14,13 @@ namespace UTNMdq2014.Models
     public class Requisito
     {
 
-        bool aprobada, cursada;
-
-        Materia materia;
+        public bool Aprobada { get; set; }
+        public bool Cursada { get; set; }
 
         public int RequisitoId { get; set; }
 
-        public virtual IList<Materia> MATERIA { get; set; }
+        public virtual Materia Referida { get; set; }
+
 
         /// <summary>
         /// Retorna según las condiciones de cursada y aprobada si
@@ -28,14 +30,14 @@ namespace UTNMdq2014.Models
         {
             get
             {
-                if (materia == null)
+                if (Referida == null)
                 {
                     string message = "La materia correspondiente al requisito se volvió nula";
                     throw new ArgumentNullException("materia", message); 
                 }
 
-                return ( materia.Aprobada == aprobada &&
-                         materia.Cursada == cursada);
+                return (Referida.Aprobada == Aprobada &&
+                         Referida.Cursada == Cursada);
             }
         }
 
@@ -46,17 +48,22 @@ namespace UTNMdq2014.Models
         /// <param name="aprobada">Debe encontrarse aprobada la materia.</param>
         public Requisito(Materia materia, bool cursada, bool aprobada)
         {
-            this.materia = materia;
-            this.aprobada = aprobada;
-            this.cursada = cursada;
+            Referida = materia;
+            Aprobada = aprobada;
+            Cursada = cursada;
+        }
+
+        public Requisito() : this(null, false, false)
+        {
         }
 
         public override string ToString()
         {
-            return " Aprobada:" + aprobada +
-                   " Cursada:" + cursada +
-                   "\n" + "["+materia+"]";
+            return "{ Aprobada:" + Aprobada +
+                   " Cursada:" + Cursada +
+                   " [ " + Referida.Nombre + " ] }";
         }
 
     }
+
 }

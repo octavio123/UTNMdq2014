@@ -69,14 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201403311851459_InitialCreate.cs" />
-    <Compile Include="Migrations\201403311851459_InitialCreate.Designer.cs">
-      <DependentUpon>201403311851459_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201403311900382_AddCondiciones.cs" />
-    <Compile Include="Migrations\201403311900382_AddCondiciones.Designer.cs">
-      <DependentUpon>201403311900382_AddCondiciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\Carrera.cs" />
@@ -99,12 +91,6 @@
     <Compile Include="Models\ValidacionPersona.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403311851459_InitialCreate.resx">
-      <DependentUpon>201403311851459_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403311900382_AddCondiciones.resx">
-      <DependentUpon>201403311900382_AddCondiciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

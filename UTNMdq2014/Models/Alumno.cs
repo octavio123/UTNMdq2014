@@ -48,17 +48,15 @@ namespace UTNMdq2014.Models
             }
         }
 
-        public Fecha Nacimiento { get; set; }
+        public virtual Fecha Nacimiento { get; set; }
         
-        public Fecha Ingreso { get; set; }
+        public virtual Fecha Ingreso { get; set; }
 
         #endregion
 
-        List<Legajo> legajos;
-
         public int AlumnoId { get; set; }
 
-        public virtual List<Legajo> LEGAJOS { get; set; }
+        public virtual List<Legajo> Legajos { get; set; }
 
         public Alumno()
             : this("Indefinido", "Indefinido", "indefinido@nada.com", new Fecha(1, 1, 1), new Fecha(1, 1, 1))
@@ -68,15 +66,11 @@ namespace UTNMdq2014.Models
         public Alumno(string nombre, string telefono, string email,
                       Fecha nacimiento, Fecha ingreso)
         {
-            legajos = new List<Legajo>();
-            
             Nombre = nombre;
             Telefono = telefono;
             Email = email;
             Nacimiento = nacimiento;
             Ingreso = ingreso;
-            
-            
         }
 
         public Alumno(Alumno otro)
@@ -92,8 +86,9 @@ namespace UTNMdq2014.Models
                 string message = "El legajo a agregar no puede ser nulo.";
                 throw new ArgumentNullException("legajo", message);
             }
-
-            legajos.Add(legajo);
+            if (Legajos == null)
+                Legajos = new List<Legajo>();
+            Legajos.Add(legajo);
         }
 
         public override string ToString()

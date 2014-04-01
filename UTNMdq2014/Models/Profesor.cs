@@ -47,8 +47,8 @@ namespace UTNMdq2014.Models
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");
             }
         }
-        public Fecha Nacimiento { get; set; }
-        public Fecha Ingreso { get; set; }
+        public virtual Fecha Nacimiento { get; set; }
+        public virtual Fecha Ingreso { get; set; }
 
         public Profesor() : this("Indefinido", "Indefinido", "indefinido@alguno.com", new Fecha(1, 1, 1), new Fecha(1, 1, 1))
         {
