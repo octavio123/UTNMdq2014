@@ -29,5 +29,10 @@ namespace UTNMdq2014
                 textBox.Text += "\nMaterias:\n" /*+ dbContext.Materias.ToList()[0] */+ dbContext.Materias.ToList()[1];
             }
         }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

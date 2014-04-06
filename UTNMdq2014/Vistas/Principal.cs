@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace UTNMdq2014.Vistas
 {
-    public partial class Profesor : Form
+    public partial class Principal : Form
     {
-        public Profesor()
+        public Principal()
         {
             InitializeComponent();
+        }
+
+        private void btnProfesores_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

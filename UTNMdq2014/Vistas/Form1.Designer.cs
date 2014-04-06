@@ -47,6 +47,7 @@
             this.textBox.Size = new System.Drawing.Size(304, 230);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // Form1
             // 
