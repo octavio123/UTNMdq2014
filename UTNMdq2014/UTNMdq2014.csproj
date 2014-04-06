@@ -89,6 +89,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Requisito.cs" />
     <Compile Include="Models\ValidacionPersona.cs" />
+    <Compile Include="Vistas\Profesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Profesor.Designer.cs">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ProfesorAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ProfesorAgregar.Designer.cs">
+      <DependentUpon>ProfesorAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ProfesorEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ProfesorEditar.Designer.cs">
+      <DependentUpon>ProfesorEditar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +119,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vistas\Profesor.resx">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ProfesorAgregar.resx">
+      <DependentUpon>ProfesorAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ProfesorEditar.resx">
+      <DependentUpon>ProfesorEditar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
