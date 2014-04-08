@@ -63,6 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\AlumnosRepositorio.cs" />
+    <Compile Include="Datos\MateriasRepositorio.cs" />
+    <Compile Include="Datos\ProfesoresRepositorio.cs" />
+    <Compile Include="Datos\Repositorio.cs" />
     <Compile Include="Modelos\Alumno.cs" />
     <Compile Include="Modelos\Carrera.cs" />
     <Compile Include="Modelos\Examen.cs" />
@@ -166,9 +170,7 @@
   <ItemGroup>
     <None Include="Recursos\login.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Datos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
