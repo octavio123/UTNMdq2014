@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -19,7 +17,7 @@ namespace UTNMdq2014.Modelos
 
         public int RequisitoId { get; set; }
 
-        public virtual Materia Referida { get; set; }
+        public Materia Referida { get; set; }
 
 
         /// <summary>

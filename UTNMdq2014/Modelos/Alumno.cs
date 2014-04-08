@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -56,7 +55,7 @@ namespace UTNMdq2014.Modelos
 
         public int AlumnoId { get; set; }
 
-        public virtual List<Legajo> Legajos { get; set; }
+        public List<Legajo> Legajos { get; set; }
 
         public Alumno()
             : this("Indefinido", "Indefinido", "indefinido@nada.com", new Fecha(1, 1, 1), new Fecha(1, 1, 1))

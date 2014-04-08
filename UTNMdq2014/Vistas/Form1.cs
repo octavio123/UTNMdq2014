@@ -15,19 +15,6 @@ namespace UTNMdq2014
         public Form1()
         {
             InitializeComponent();
-
-            using (FacultadDbContext dbContext = new FacultadDbContext())
-            {
-
-                textBox.Text += "Alumnos:\n" +
-                                dbContext.Alumnos.ToList()[0] + "\n" +
-                                "Profesores:\n" +
-                                dbContext.Profesores.ToList()[0] + "\n" +
-                                "Legajos:\n" +
-                                dbContext.Legajos.ToList()[0] + "\n";
-
-                textBox.Text += "\nMaterias:\n" /*+ dbContext.Materias.ToList()[0] */+ dbContext.Materias.ToList()[1];
-            }
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)

@@ -49,12 +49,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -69,12 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Alumno.cs" />
-    <Compile Include="Models\Carrera.cs" />
-    <Compile Include="Models\Examen.cs" />
-    <Compile Include="FacultadDbContext.cs" />
-    <Compile Include="Models\Fecha.cs" />
+    <Compile Include="Modelos\Alumno.cs" />
+    <Compile Include="Modelos\Carrera.cs" />
+    <Compile Include="Modelos\Examen.cs" />
+    <Compile Include="Modelos\Fecha.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,14 +78,14 @@
     <Compile Include="Vistas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Legajo.cs" />
-    <Compile Include="Models\Materia.cs" />
-    <Compile Include="Models\PlanEstudio.cs" />
-    <Compile Include="Models\Profesor.cs" />
+    <Compile Include="Modelos\Legajo.cs" />
+    <Compile Include="Modelos\Materia.cs" />
+    <Compile Include="Modelos\PlanEstudio.cs" />
+    <Compile Include="Modelos\Profesor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Requisito.cs" />
-    <Compile Include="Models\ValidacionPersona.cs" />
+    <Compile Include="Modelos\Requisito.cs" />
+    <Compile Include="Modelos\ValidacionPersona.cs" />
     <Compile Include="Vistas\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +131,6 @@
       <DependentUpon>ProfesorEditar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,7 +164,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\login.png" />
+    <None Include="Recursos\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Datos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

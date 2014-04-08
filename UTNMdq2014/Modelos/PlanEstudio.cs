@@ -9,7 +9,7 @@ namespace UTNMdq2014.Modelos
     public class PlanEstudio
     {
         public int PlanEstudioId { get; set; }
-        public virtual ICollection<Materia> Materias { get; set; }
+        public List<Materia> Materias { get; set; }
         public int Año { get; set; }
 
         public PlanEstudio(List<Materia> listaMaterias)

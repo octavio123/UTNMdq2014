@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +9,7 @@ namespace UTNMdq2014.Modelos
     {
         public int LegajoId { get; set; }
 
-        public virtual PlanEstudio Plan { get; set; }
+        public PlanEstudio Plan { get; set; }
 
         public override string ToString()
         {
