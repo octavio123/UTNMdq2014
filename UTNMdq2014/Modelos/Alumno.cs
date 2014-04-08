@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace UTNMdq2014.Models
+namespace UTNMdq2014.Modelos
 {
     public class Alumno
     {

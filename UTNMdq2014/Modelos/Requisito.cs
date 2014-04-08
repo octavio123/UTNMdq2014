@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace UTNMdq2014.Models
+namespace UTNMdq2014.Modelos
 {
     /// <summary>
     /// El requisito contiene una 
