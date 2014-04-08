@@ -71,6 +71,7 @@
     <Compile Include="Modelos\Carrera.cs" />
     <Compile Include="Modelos\Examen.cs" />
     <Compile Include="Modelos\Fecha.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
