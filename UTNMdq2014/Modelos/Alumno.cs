@@ -13,7 +13,7 @@ namespace UTNMdq2014.Modelos
         public string Telefono
         {
             get { return telefono; }
-            protected set
+            set
             {
                 if (ValidadorPersona.EsTelefonoValido(value))
                     telefono = value;
@@ -26,7 +26,7 @@ namespace UTNMdq2014.Modelos
         public string Email
         {
             get { return email; }
-            protected set
+            set
             {
                 if (ValidadorPersona.EsEmailValido(value))
                     email = value;
@@ -38,7 +38,7 @@ namespace UTNMdq2014.Modelos
         public string Nombre
         {
             get { return nombre; }
-            protected set
+            set
             {
                 if (ValidadorPersona.EsNombreValido(value))
                     nombre = value;
@@ -47,9 +47,9 @@ namespace UTNMdq2014.Modelos
             }
         }
 
-        public virtual Fecha Nacimiento { get; set; }
+        public Fecha Nacimiento { get; set; }
         
-        public virtual Fecha Ingreso { get; set; }
+        public Fecha Ingreso { get; set; }
 
         #endregion
 

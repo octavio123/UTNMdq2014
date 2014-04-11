@@ -30,20 +30,20 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAlumnoEliminar = new System.Windows.Forms.Button();
+            this.btnAlumnoEditar = new System.Windows.Forms.Button();
+            this.btnAlumnoAgregar = new System.Windows.Forms.Button();
+            this.lbAlumnos = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnProfesorEliminar = new System.Windows.Forms.Button();
             this.btnProfesorEditar = new System.Windows.Forms.Button();
             this.btnProfesorAgregar = new System.Windows.Forms.Button();
             this.lbProfesores = new System.Windows.Forms.ListBox();
-            this.btnAlumnoEliminar = new System.Windows.Forms.Button();
-            this.btnAlumnoEditar = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnMateriaEliminar = new System.Windows.Forms.Button();
             this.btnMateriaEditar = new System.Windows.Forms.Button();
             this.btnMateriaAgregar = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.btnAlumnoAgregar = new System.Windows.Forms.Button();
+            this.lbMaterias = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -60,6 +60,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(515, 375);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // tabPage1
             // 
@@ -67,13 +68,49 @@
             this.tabPage1.Controls.Add(this.btnAlumnoEliminar);
             this.tabPage1.Controls.Add(this.btnAlumnoEditar);
             this.tabPage1.Controls.Add(this.btnAlumnoAgregar);
-            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.lbAlumnos);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(507, 349);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ALUMNOS";
+            // 
+            // btnAlumnoEliminar
+            // 
+            this.btnAlumnoEliminar.Location = new System.Drawing.Point(359, 130);
+            this.btnAlumnoEliminar.Name = "btnAlumnoEliminar";
+            this.btnAlumnoEliminar.Size = new System.Drawing.Size(140, 39);
+            this.btnAlumnoEliminar.TabIndex = 11;
+            this.btnAlumnoEliminar.Text = "Eliminar";
+            this.btnAlumnoEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnAlumnoEditar
+            // 
+            this.btnAlumnoEditar.Location = new System.Drawing.Point(359, 77);
+            this.btnAlumnoEditar.Name = "btnAlumnoEditar";
+            this.btnAlumnoEditar.Size = new System.Drawing.Size(140, 39);
+            this.btnAlumnoEditar.TabIndex = 10;
+            this.btnAlumnoEditar.Text = "Editar";
+            this.btnAlumnoEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnAlumnoAgregar
+            // 
+            this.btnAlumnoAgregar.Location = new System.Drawing.Point(359, 24);
+            this.btnAlumnoAgregar.Name = "btnAlumnoAgregar";
+            this.btnAlumnoAgregar.Size = new System.Drawing.Size(140, 39);
+            this.btnAlumnoAgregar.TabIndex = 9;
+            this.btnAlumnoAgregar.Text = "Agregar";
+            this.btnAlumnoAgregar.UseVisualStyleBackColor = true;
+            this.btnAlumnoAgregar.Click += new System.EventHandler(this.btnAlumnoAgregar_Click);
+            // 
+            // lbAlumnos
+            // 
+            this.lbAlumnos.FormattingEnabled = true;
+            this.lbAlumnos.Location = new System.Drawing.Point(8, 23);
+            this.lbAlumnos.Name = "lbAlumnos";
+            this.lbAlumnos.Size = new System.Drawing.Size(345, 303);
+            this.lbAlumnos.TabIndex = 8;
             // 
             // tabPage2
             // 
@@ -88,20 +125,6 @@
             this.tabPage2.Size = new System.Drawing.Size(507, 349);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "PROFESORES";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage3.Controls.Add(this.btnMateriaEliminar);
-            this.tabPage3.Controls.Add(this.btnMateriaEditar);
-            this.tabPage3.Controls.Add(this.btnMateriaAgregar);
-            this.tabPage3.Controls.Add(this.listBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(507, 349);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "MATERIAS";
             // 
             // btnProfesorEliminar
             // 
@@ -129,6 +152,7 @@
             this.btnProfesorAgregar.TabIndex = 5;
             this.btnProfesorAgregar.Text = "Agregar";
             this.btnProfesorAgregar.UseVisualStyleBackColor = true;
+            this.btnProfesorAgregar.Click += new System.EventHandler(this.btnProfesorAgregar_Click);
             // 
             // lbProfesores
             // 
@@ -138,31 +162,19 @@
             this.lbProfesores.Size = new System.Drawing.Size(345, 303);
             this.lbProfesores.TabIndex = 4;
             // 
-            // btnAlumnoEliminar
+            // tabPage3
             // 
-            this.btnAlumnoEliminar.Location = new System.Drawing.Point(359, 130);
-            this.btnAlumnoEliminar.Name = "btnAlumnoEliminar";
-            this.btnAlumnoEliminar.Size = new System.Drawing.Size(140, 39);
-            this.btnAlumnoEliminar.TabIndex = 11;
-            this.btnAlumnoEliminar.Text = "Eliminar";
-            this.btnAlumnoEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnAlumnoEditar
-            // 
-            this.btnAlumnoEditar.Location = new System.Drawing.Point(359, 77);
-            this.btnAlumnoEditar.Name = "btnAlumnoEditar";
-            this.btnAlumnoEditar.Size = new System.Drawing.Size(140, 39);
-            this.btnAlumnoEditar.TabIndex = 10;
-            this.btnAlumnoEditar.Text = "Editar";
-            this.btnAlumnoEditar.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(8, 23);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(345, 303);
-            this.listBox1.TabIndex = 8;
+            this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage3.Controls.Add(this.btnMateriaEliminar);
+            this.tabPage3.Controls.Add(this.btnMateriaEditar);
+            this.tabPage3.Controls.Add(this.btnMateriaAgregar);
+            this.tabPage3.Controls.Add(this.lbMaterias);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(507, 349);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "MATERIAS";
             // 
             // btnMateriaEliminar
             // 
@@ -190,23 +202,15 @@
             this.btnMateriaAgregar.TabIndex = 9;
             this.btnMateriaAgregar.Text = "Agregar";
             this.btnMateriaAgregar.UseVisualStyleBackColor = true;
+            this.btnMateriaAgregar.Click += new System.EventHandler(this.btnMateriaAgregar_Click);
             // 
-            // listBox2
+            // lbMaterias
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(8, 23);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(345, 303);
-            this.listBox2.TabIndex = 8;
-            // 
-            // btnAlumnoAgregar
-            // 
-            this.btnAlumnoAgregar.Location = new System.Drawing.Point(359, 24);
-            this.btnAlumnoAgregar.Name = "btnAlumnoAgregar";
-            this.btnAlumnoAgregar.Size = new System.Drawing.Size(140, 39);
-            this.btnAlumnoAgregar.TabIndex = 9;
-            this.btnAlumnoAgregar.Text = "Agregar";
-            this.btnAlumnoAgregar.UseVisualStyleBackColor = true;
+            this.lbMaterias.FormattingEnabled = true;
+            this.lbMaterias.Location = new System.Drawing.Point(8, 23);
+            this.lbMaterias.Name = "lbMaterias";
+            this.lbMaterias.Size = new System.Drawing.Size(345, 303);
+            this.lbMaterias.TabIndex = 8;
             // 
             // Principal
             // 
@@ -217,6 +221,7 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -233,7 +238,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnAlumnoEliminar;
         private System.Windows.Forms.Button btnAlumnoEditar;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbAlumnos;
         private System.Windows.Forms.Button btnProfesorEliminar;
         private System.Windows.Forms.Button btnProfesorEditar;
         private System.Windows.Forms.Button btnProfesorAgregar;
@@ -241,7 +246,7 @@
         private System.Windows.Forms.Button btnMateriaEliminar;
         private System.Windows.Forms.Button btnMateriaEditar;
         private System.Windows.Forms.Button btnMateriaAgregar;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lbMaterias;
         private System.Windows.Forms.Button btnAlumnoAgregar;
     }
 }

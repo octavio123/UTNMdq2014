@@ -9,11 +9,11 @@ namespace UTNMdq2014.Modelos
     {
         public int ExamenId { get; set; }
 
-        public int Nota { get; protected set; }
+        public int Nota { get; set; }
 
-        public bool Parcial { get; protected set; }
+        public bool Parcial { get; set; }
 
-        public Materia MateriaCorrespondiente { get; protected set; }
+        public Materia MateriaCorrespondiente { get; set; }
 
         public Examen() : this(new Materia(), 0, false)
         { }

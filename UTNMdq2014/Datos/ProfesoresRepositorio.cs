@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,12 +13,12 @@ namespace UTNMdq2014.Datos
 {
     public class ProfesoresRepositorio : Repositorio<Profesor>
     {
-        public List<Profesor> Profesores { get; set; }
+        public BindingList<Profesor> Profesores { get; set; }
         static string RepoFile = "profesores.xml";
 
         public ProfesoresRepositorio() : base(RepoFile)
         {
-            Profesores = base.Datos;
+            Profesores = new BindingList<Profesor>(base.Datos);
         }
 
     }

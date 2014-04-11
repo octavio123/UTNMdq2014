@@ -13,7 +13,7 @@ namespace UTNMdq2014.Modelos
         public string Nombre
         {
             get { return nombre; }
-            protected set
+            set
             {
                 if (ValidadorPersona.EsNombreValido(value))
                     nombre = value;
@@ -25,7 +25,7 @@ namespace UTNMdq2014.Modelos
         public PlanEstudio Plan
         {
             get;
-            protected set;
+            set;
         }
 
         public Carrera(PlanEstudio plan)

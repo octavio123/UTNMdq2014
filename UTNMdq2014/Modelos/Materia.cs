@@ -24,9 +24,9 @@ namespace UTNMdq2014.Modelos
         #region Propiedades
 
         public int MateriaId { get; set; }
-        public virtual PlanEstudio Plan { get; set; }
-        public virtual ICollection<Requisito> Requisitos { get; set; }
-        public virtual ICollection<Examen> Examenes { get; set; }
+        public PlanEstudio Plan { get; set; }
+        public List<Requisito> Requisitos { get; set; }
+        public List<Examen> Examenes { get; set; }
 
         
 
@@ -77,7 +77,7 @@ namespace UTNMdq2014.Modelos
         public string Nombre
         {
             get { return nombre; }
-            protected set
+            set
             {
                 if (ValidadorPersona.EsNombreValido(value))
                     nombre = value;
@@ -89,12 +89,12 @@ namespace UTNMdq2014.Modelos
         public int Año
         {
             get;
-            protected set;
+            set;
         }
 
-        public int CargaHoraria { get; protected set; }
+        public int CargaHoraria { get; set; }
 
-        public int HorasCursadas { get; protected set; }
+        public int HorasCursadas { get; set; }
         
         #endregion
 
