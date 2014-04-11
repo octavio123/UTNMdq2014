@@ -10,13 +10,14 @@ namespace UTNMdq2014.Datos
 {
     public class Repositorio<T> : IDisposable
     {
-        public List<T> Datos { get; set; }
+        protected List<T> Datos { get; set; }
         string file;
 
         protected Repositorio(string filename)
         {
             file = filename;
             this.Datos = new List<T>();
+            Load();
         }
 
         protected void Save()

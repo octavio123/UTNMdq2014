@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,12 @@ namespace UTNMdq2014.Datos
 {
     public class AlumnosRepositorio : Repositorio<Alumno>
     {
-        public List<Alumno> Alumnos { get; set; }
-        static string RepoFile = "Alumnos.xml";
+        public BindingList<Alumno> Alumnos { get; set; }
+        static string RepoFile = "alumnos.xml";
 
         public AlumnosRepositorio() : base(RepoFile)
         {
-            Alumnos = base.Datos;
+            Alumnos = new BindingList<Alumno>(base.Datos);
         }
 
     }

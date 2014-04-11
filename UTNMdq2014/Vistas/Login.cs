@@ -23,9 +23,9 @@ namespace UTNMdq2014.Vistas
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Principal pri = new Principal();
-            pri.Show();
+            Principal mainForm = new Principal(this);
+            Hide();
+            mainForm.ShowDialog();
         }
     }
 }
