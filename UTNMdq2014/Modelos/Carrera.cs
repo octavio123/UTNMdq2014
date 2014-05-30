@@ -8,6 +8,8 @@ namespace UTNMdq2014.Modelos
     public class Carrera
     {
         public int CarreraId { get; set; }
+        public List<PlanEstudio> Planes { get; set; }
+        public PlanEstudio PlanActual { get; set; }
 
         string nombre;
         public string Nombre

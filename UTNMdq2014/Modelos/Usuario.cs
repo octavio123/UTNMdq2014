@@ -6,7 +6,6 @@ using System.Text;
 namespace UTNMdq2014.Modelos
 {
 
-
     public enum UsuarioTipo // UserType :P
     {
         Profesor, Administrador, Mantenedor, Consultor

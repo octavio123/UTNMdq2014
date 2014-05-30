@@ -51,14 +51,13 @@ namespace UTNMdq2014.Modelos
         
         public Fecha Ingreso { get; set; }
 
-        #endregion
-
         public int AlumnoId { get; set; }
 
         public List<Legajo> Legajos { get; set; }
 
+        #endregion
+
         public Alumno()
-            : this("Indefinido", "Indefinido", "indefinido@nada.com", new Fecha(1, 1, 1), new Fecha(1, 1, 1))
         {
         }
 

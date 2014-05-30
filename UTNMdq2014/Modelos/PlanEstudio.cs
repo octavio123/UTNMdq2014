@@ -9,19 +9,27 @@ namespace UTNMdq2014.Modelos
     public class PlanEstudio
     {
         public int PlanEstudioId { get; set; }
-        public List<Materia> Materias { get; set; }
+        
+        private List<Materia> materias;
+        private Dictionary<Materia, List<Requisito>> Correlatividades { get; set; }
+
         public int Año { get; set; }
+        public EstadoContable EstadoContable { get; set; }
 
         public PlanEstudio(List<Materia> listaMaterias)
         {
-            Materias = listaMaterias;
+            materias = listaMaterias;
         }
 
         public PlanEstudio() : this(new List<Materia>())
         {
         }
 
-        
+
+        public List<Materia> ObtenerMaterias()
+        {
+            return new List<Materia>(materias);
+        }
 
         public void AgregarMateria(Materia materia)
         {
@@ -31,13 +39,23 @@ namespace UTNMdq2014.Modelos
                 throw new ArgumentNullException("materia", message);
             }
             
-            Materias.Add(materia);
+            materias.Add(materia);
+        }
+
+        /// <summary>
+        /// Muestra si la materia se encuentra en condiciones de
+        /// ser cursada en base al <see cref=Requisito></see>
+        /// </summary>
+        public bool PuedeCursarse(Materia materia)
+        {
+            bool cumplidos = Correlatividades[materia].TrueForAll(x => x.Cumplido);
+            return cumplidos;
         }
 
         public override string ToString()
         {
             StringBuilder message = new StringBuilder();
-            foreach (var mat in Materias)
+            foreach (var mat in materias)
             {
                 message.AppendLine(mat.ToString());
             }

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace UTNMdq2014.Datos
 {
-    public class Repositorio<T> : IDisposable
+    public abstract class Repositorio<T> : IDisposable
     {
         protected List<T> Datos { get; set; }
         string file;

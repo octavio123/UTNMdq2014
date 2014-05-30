@@ -50,7 +50,7 @@ namespace UTNMdq2014.Modelos
         public virtual Fecha Nacimiento { get; set; }
         public virtual Fecha Ingreso { get; set; }
 
-        public Profesor() : this("Indefinido", "Indefinido", "indefinido@alguno.com", new Fecha(1, 1, 1), new Fecha(1, 1, 1))
+        public Profesor()
         {
         }
 
