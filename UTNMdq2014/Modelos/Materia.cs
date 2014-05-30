@@ -9,46 +9,31 @@ namespace UTNMdq2014.Modelos
     public class Materia
     {
 
-        static readonly int notaMinima = 4;
+        static readonly int NotaMinima = 4;
 
         string nombre;
-
-        int sumaNotas, // Suma de la nota de todos los examenes.
-            cantidadParciales,
-            cantidadFinales,
-            parcialesAprobados,
-            finalesAprobados;
-
-        
 
         #region Propiedades
 
         public int MateriaId { get; set; }
         public PlanEstudio Plan { get; set; }
-        public List<Requisito> Requisitos { get; set; }
         public List<Examen> Examenes { get; set; }
+        public Horario Horario { get; set; }
 
-        
 
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
         /// </summary>
-        public float Promedio
+        public static double ObtenerPromedio(List<Examen> examenes)
         {
-            get { return ((float)sumaNotas / (cantidadFinales + cantidadFinales)); }
-        }
-
-        /// <summary>
-        /// Muestra si la materia se encuentra en condiciones de
-        /// ser cursada en base al <b>Requisito</b>.
-        /// </summary>
-        public bool CursadaHabilitada
-        {
-            get 
-            { 
-                return Requisitos == null || Requisitos.All(requisito => requisito.Cumplido);
+            double sumNota = 0;
+            foreach (var examen in examenes)
+            {
+                sumNota += examen.Nota;
             }
+
+            return sumNota / examenes.Count;
         }
 
         /// <summary>
@@ -58,7 +43,7 @@ namespace UTNMdq2014.Modelos
         { 
             get
             {
-                return (Cursada && (cantidadFinales == finalesAprobados));
+                return EstaAprobada(this);
             }
         }
 
@@ -69,9 +54,19 @@ namespace UTNMdq2014.Modelos
         {
             get
             {
-                return ( CargaHoraria == HorasCursadas &&
-                         parcialesAprobados == cantidadParciales );
+                return EstaCursada(this);
             }
+        }
+
+        /// <summary>
+        /// Retorna si la materia fue cursada correctamente.
+        /// </summary>
+        private static bool EstaCursada(Materia materia)
+        {
+            List<Examen> parciales = materia.Examenes.Where(x => x.Parcial).ToList();
+            bool cursada = parciales.TrueForAll(x => x.Nota == NotaMinima);
+
+            return cursada;
         }
 
         public string Nombre
@@ -98,31 +93,16 @@ namespace UTNMdq2014.Modelos
         
         #endregion
 
-        private void calcularEstadoMateria()
+        private static bool EstaAprobada(Materia materia)
         {
+            List<Examen> parciales = materia.Examenes.Where(x => (x.Parcial)).ToList();
+            List<Examen> finales = materia.Examenes.Where(x => (!x.Parcial)).ToList();
 
-            sumaNotas =
-            cantidadParciales =
-            parcialesAprobados =
-            cantidadFinales =
-            finalesAprobados = 0;
+            int parcialesAprobados = parciales.Where(x => x.Nota >= NotaMinima).Count();
+            int finalesAprobados = finales.Where(x => x.Nota >= NotaMinima).Count();
 
-            foreach (var examen in Examenes)
-            {
-                if (examen.Parcial)
-                {
-                    cantidadParciales++;
-                    if (examen.Nota >= notaMinima)
-                        parcialesAprobados++;
-                }
-                else
-                {
-                    cantidadFinales++;
-                    finalesAprobados += (examen.Nota >= notaMinima) ? 1 : 0;
-                }
-
-                sumaNotas += examen.Nota;
-            }
+            return (finalesAprobados == finales.Count) &&
+                   (parcialesAprobados == parciales.Count);
         }
 
         public Materia() : this("Indefinido", 0, 0)

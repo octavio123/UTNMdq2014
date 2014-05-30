@@ -65,7 +65,7 @@
             // dtpFechaInicio
             // 
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicio.Location = new System.Drawing.Point(119, 204);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(95, 204);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(105, 20);
             this.dtpFechaInicio.TabIndex = 25;
@@ -73,7 +73,7 @@
             // dtpFechaNac
             // 
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNac.Location = new System.Drawing.Point(114, 172);
+            this.dtpFechaNac.Location = new System.Drawing.Point(95, 172);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(105, 20);
             this.dtpFechaNac.TabIndex = 24;
@@ -81,7 +81,7 @@
             // lblFechaInicio
             // 
             this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Location = new System.Drawing.Point(35, 208);
+            this.lblFechaInicio.Location = new System.Drawing.Point(2, 209);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(78, 13);
             this.lblFechaInicio.TabIndex = 23;
@@ -90,7 +90,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(35, 176);
+            this.lblFechaNac.Location = new System.Drawing.Point(17, 177);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(63, 13);
             this.lblFechaNac.TabIndex = 22;
@@ -99,7 +99,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(35, 25);
+            this.lblId.Location = new System.Drawing.Point(61, 30);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(19, 13);
             this.lblId.TabIndex = 21;
@@ -116,7 +116,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(32, 139);
+            this.lblTelefono.Location = new System.Drawing.Point(33, 144);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(52, 13);
             this.lblTelefono.TabIndex = 19;
@@ -125,7 +125,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(32, 101);
+            this.lblEmail.Location = new System.Drawing.Point(45, 105);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 18;
@@ -134,7 +134,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(32, 62);
+            this.lblNombre.Location = new System.Drawing.Point(33, 64);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 17;

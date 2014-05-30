@@ -68,8 +68,12 @@
     <Compile Include="Datos\ProfesoresRepositorio.cs" />
     <Compile Include="Datos\Repositorio.cs" />
     <Compile Include="Modelos\Alumno.cs" />
+    <Compile Include="Modelos\Aula.cs" />
     <Compile Include="Modelos\Carrera.cs" />
+    <Compile Include="Modelos\Curso.cs" />
+    <Compile Include="Modelos\EstadoContable.cs" />
     <Compile Include="Modelos\Examen.cs" />
+    <Compile Include="Modelos\Facultad.cs" />
     <Compile Include="Modelos\Fecha.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
