@@ -7,7 +7,7 @@ namespace UTNMdq2014.Modelos
 {
     public class Alumno
     {
-        private string nombre, email, telefono;
+        private string nombre, email, telefono, dni;
 
         #region Propiedades
         public string Telefono
@@ -21,6 +21,12 @@ namespace UTNMdq2014.Modelos
                     throw new ArgumentException("telefono", "El valor especificado es inválido.");
             }
 
+        }
+        
+        public string Dni
+        {
+            get {return dni;}
+            set {dni = value;}
         }
 
         public string Email
