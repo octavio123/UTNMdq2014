@@ -75,6 +75,7 @@
     <Compile Include="Modelos\Examen.cs" />
     <Compile Include="Modelos\Facultad.cs" />
     <Compile Include="Modelos\Fecha.cs" />
+    <Compile Include="Modelos\Horario.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
