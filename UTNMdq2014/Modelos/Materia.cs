@@ -16,11 +16,12 @@ namespace UTNMdq2014.Modelos
         #region Propiedades
 
         public int MateriaId { get; set; }
+
         public PlanEstudio Plan { get; set; }
+
         public List<Examen> Examenes { get; set; }
+
         public Horario Horario { get; set; }
-
-
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
@@ -74,10 +75,14 @@ namespace UTNMdq2014.Modelos
             get { return nombre; }
             set
             {
-                if (ValidadorPersona.EsNombreValido(value))
+                if (Validador.EsNombreValido(value))
+                {
                     nombre = value;
+                }
                 else
+                {
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");
+                }
             }
         }
 
@@ -87,81 +92,51 @@ namespace UTNMdq2014.Modelos
             set;
         }
 
-        public int CargaHoraria { get; set; }
+        public int CargaHoraria { get; protected set; }
 
-        public int HorasCursadas { get; set; }
+        public int HorasCursadas { get; protected set; }
         
         #endregion
 
+        /// <summary>
+        /// Obtiene si la materia se encuentra aprobada.
+        /// </summary>
         private static bool EstaAprobada(Materia materia)
         {
-            List<Examen> parciales = materia.Examenes.Where(x => (x.Parcial)).ToList();
-            List<Examen> finales = materia.Examenes.Where(x => (!x.Parcial)).ToList();
+            List<Examen> parciales = materia.Examenes.Where(x => (x.Parcial) ).ToList();
+            List<Examen> finales = materia.Examenes.Where(x => (!x.Parcial) ).ToList();
 
             int parcialesAprobados = parciales.Where(x => x.Nota >= NotaMinima).Count();
             int finalesAprobados = finales.Where(x => x.Nota >= NotaMinima).Count();
 
-            return (finalesAprobados == finales.Count) &&
-                   (parcialesAprobados == parciales.Count);
+            return ( finalesAprobados == finales.Count &&
+                    parcialesAprobados == parciales.Count );
         }
 
-        public Materia() : this("Indefinido", 0, 0)
+        public Materia()
         {
         }
 
-        public Materia(string nombre, int año, int cargaHoraria, List<Requisito> requisitos = null)
+        public Materia(string nombre, int año, int cargaHoraria)
         {
             Nombre = nombre;
             Año = año;
-            Requisitos = requisitos;
             CargaHoraria = cargaHoraria;
 
             Examenes = new List<Examen>();
-            if (requisitos == null)
-                Requisitos = new List<Requisito>();
-            else
-                Requisitos = requisitos;
         }
-
-        public Materia (string nombre, int año, int cargaHoraria, Requisito requisito)
-            : this(nombre, año, cargaHoraria)
-        {
-            Requisitos.Add(requisito);
-        }
-
 
         public void AgregarExamen(Examen examen)
         {
-            if (examen == null)
-                throw new ArgumentNullException("examen", "No debe ser nulo.");
-            if (examen.MateriaCorrespondiente != this)
-                throw new ArgumentException("examen", "Debe pertenecer a esta materia.");
-            
+            if (examen == null) { throw new ArgumentNullException("examen", "No debe ser nulo."); }
+            if (examen.MateriaCorrespondiente != this) { throw new ArgumentException("examen", "Debe pertenecer a esta materia."); }
+
             Examenes.Add(examen);
-            calcularEstadoMateria();
         }
 
         public override string ToString()
         {
-            StringBuilder requisitoMensajeBuilder;
-            string mensajeRequisito = "";
-
-            if (Requisitos != null && Requisitos.Count > 0)
-            {
-                requisitoMensajeBuilder = new StringBuilder();
-
-                foreach (var req in Requisitos)
-                {
-                    requisitoMensajeBuilder.AppendLine(req.ToString());
-                }
-                mensajeRequisito = requisitoMensajeBuilder.ToString();
-            }
-            else
-            {
-                mensajeRequisito = " No tiene requisitos.";
-            }
-
-            return Nombre + " \nRequiere:" + mensajeRequisito;
+            return Nombre;
         }
 
     }

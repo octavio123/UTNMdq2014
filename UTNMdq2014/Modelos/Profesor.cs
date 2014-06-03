@@ -16,7 +16,7 @@ namespace UTNMdq2014.Modelos
             get { return telefono; }
             set
             {
-                if (ValidadorPersona.EsTelefonoValido(value))
+                if (Validador.EsTelefonoValido(value))
                     telefono = value;
                 else
                     throw new ArgumentException("telefono", "El valor especificado es inválido.");
@@ -29,7 +29,7 @@ namespace UTNMdq2014.Modelos
             get { return email; } 
             set 
             { 
-                if (ValidadorPersona.EsEmailValido(value))
+                if (Validador.EsEmailValido(value))
                     email = value; 
                 else
                     throw new ArgumentException("email", "El valor especificado es inválido.");
@@ -41,7 +41,7 @@ namespace UTNMdq2014.Modelos
             get { return nombre; }
             set
             {
-                if (ValidadorPersona.EsNombreValido(value))
+                if (Validador.EsNombreValido(value))
                     nombre = value;
                 else
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");

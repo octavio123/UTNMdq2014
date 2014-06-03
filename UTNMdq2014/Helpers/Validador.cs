@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UTNMdq2014.Modelos
 {
-    public class ValidadorPersona
+    public class Validador
     {
 
         public static bool EsEmailValido(string email)

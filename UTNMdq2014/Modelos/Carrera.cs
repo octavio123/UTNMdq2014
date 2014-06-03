@@ -17,7 +17,7 @@ namespace UTNMdq2014.Modelos
             get { return nombre; }
             set
             {
-                if (ValidadorPersona.EsNombreValido(value))
+                if (Validador.EsNombreValido(value))
                     nombre = value;
                 else
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");

@@ -13,6 +13,7 @@ namespace UTNMdq2014.Modelos
     {
 
         public bool Aprobada { get; set; }
+
         public bool Cursada { get; set; }
 
         public int RequisitoId { get; set; }
@@ -34,8 +35,8 @@ namespace UTNMdq2014.Modelos
                     throw new ArgumentNullException("materia", message); 
                 }
 
-                return (Referida.Aprobada == Aprobada &&
-                         Referida.Cursada == Cursada);
+                return ( Referida.Aprobada == Aprobada &&
+                         Referida.Cursada == Cursada );
             }
         }
 
