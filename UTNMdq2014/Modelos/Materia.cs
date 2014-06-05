@@ -11,17 +11,17 @@ namespace UTNMdq2014.Modelos
 
         static readonly int NotaMinima = 4;
 
-        string nombre;
+        private string nombre;
 
         #region Propiedades
 
-        public int MateriaId { get; set; }
+        public int MateriaId { get; protected set; }
 
-        public PlanEstudio Plan { get; set; }
+        public PlanEstudio Plan { get; protected set; }
 
-        public List<Examen> Examenes { get; set; }
+        public List<Examen> Examenes { get; protected set; }
 
-        public Horario Horario { get; set; }
+        public Horario Horario { get; protected set; }
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
@@ -73,7 +73,7 @@ namespace UTNMdq2014.Modelos
         public string Nombre
         {
             get { return nombre; }
-            set
+            protected set
             {
                 if (Validador.EsNombreValido(value))
                 {
@@ -103,8 +103,8 @@ namespace UTNMdq2014.Modelos
         /// </summary>
         private static bool EstaAprobada(Materia materia)
         {
-            List<Examen> parciales = materia.Examenes.Where(x => (x.Parcial) ).ToList();
-            List<Examen> finales = materia.Examenes.Where(x => (!x.Parcial) ).ToList();
+            List<Examen> parciales = materia.Examenes.Where(x => x.Parcial ).ToList();
+            List<Examen> finales = materia.Examenes.Where(x => !x.Parcial ).ToList();
 
             int parcialesAprobados = parciales.Where(x => x.Nota >= NotaMinima).Count();
             int finalesAprobados = finales.Where(x => x.Nota >= NotaMinima).Count();
@@ -126,6 +126,10 @@ namespace UTNMdq2014.Modelos
             Examenes = new List<Examen>();
         }
 
+        /// <summary>
+        /// Agrega un examen a la lista de examenes para la materia.
+        /// </summary>
+        /// <param name="examen">Un <see cref="Examen"/> correspondiente a la materia.</param>
         public void AgregarExamen(Examen examen)
         {
             if (examen == null) { throw new ArgumentNullException("examen", "No debe ser nulo."); }

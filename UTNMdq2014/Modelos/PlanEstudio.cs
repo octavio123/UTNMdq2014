@@ -29,6 +29,10 @@ namespace UTNMdq2014.Modelos
         }
 
 
+        /// <summary>
+        /// Retorna las materias correspondientes al plan de estudio.
+        /// </summary>
+        /// <returns>Una lista de materias.</returns>
         public List<Materia> ObtenerMaterias()
         {
             return new List<Materia>(materias);

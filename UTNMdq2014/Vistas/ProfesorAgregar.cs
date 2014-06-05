@@ -12,7 +12,7 @@ namespace UTNMdq2014.Vistas
 {
     public partial class ProfesorAgregar : Form
     {
-        public Profesor Resultado { get; set; }
+        public Profesor Resultado { get; protected set; }
         
         public ProfesorAgregar(Profesor editar = null)
         {
