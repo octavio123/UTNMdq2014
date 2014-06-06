@@ -76,6 +76,7 @@
     <Compile Include="Modelos\Facultad.cs" />
     <Compile Include="Modelos\Fecha.cs" />
     <Compile Include="Modelos\Horario.cs" />
+    <Compile Include="Modelos\Mesa.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +102,12 @@
     </Compile>
     <Compile Include="Vistas\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MesaDeExamen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\MesaDeExamen.Designer.cs">
+      <DependentUpon>MesaDeExamen.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Principal.cs">
       <SubType>Form</SubType>
@@ -130,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\MesaDeExamen.resx">
+      <DependentUpon>MesaDeExamen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

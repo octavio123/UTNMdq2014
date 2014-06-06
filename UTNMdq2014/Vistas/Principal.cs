@@ -73,5 +73,10 @@ namespace UTNMdq2014.Vistas
             Close();
             parent.Close();
         }
+
+        private void linkMesasExamen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

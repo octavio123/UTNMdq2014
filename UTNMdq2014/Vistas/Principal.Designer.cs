@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAlumnoEliminar = new System.Windows.Forms.Button();
             this.btnAlumnoEditar = new System.Windows.Forms.Button();
@@ -44,23 +44,27 @@
             this.btnMateriaEditar = new System.Windows.Forms.Button();
             this.btnMateriaAgregar = new System.Windows.Forms.Button();
             this.lbMaterias = new System.Windows.Forms.ListBox();
-            this.tabControl1.SuspendLayout();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.linkMesasExamen = new System.Windows.Forms.LinkLabel();
+            this.tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(515, 375);
-            this.tabControl1.TabIndex = 3;
-            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
+            this.tab.Controls.Add(this.tabPage1);
+            this.tab.Controls.Add(this.tabPage2);
+            this.tab.Controls.Add(this.tabPage3);
+            this.tab.Controls.Add(this.tabPage4);
+            this.tab.Location = new System.Drawing.Point(12, 12);
+            this.tab.Name = "tab";
+            this.tab.SelectedIndex = 0;
+            this.tab.Size = new System.Drawing.Size(515, 375);
+            this.tab.TabIndex = 3;
+            this.tab.Tag = "";
+            this.tab.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // tabPage1
             // 
@@ -212,27 +216,50 @@
             this.lbMaterias.Size = new System.Drawing.Size(345, 303);
             this.lbMaterias.TabIndex = 8;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(507, 349);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // linkMesasExamen
+            // 
+            this.linkMesasExamen.AutoSize = true;
+            this.linkMesasExamen.Location = new System.Drawing.Point(534, 70);
+            this.linkMesasExamen.Name = "linkMesasExamen";
+            this.linkMesasExamen.Size = new System.Drawing.Size(93, 13);
+            this.linkMesasExamen.TabIndex = 4;
+            this.linkMesasExamen.TabStop = true;
+            this.linkMesasExamen.Text = "Mesas de examen";
+            this.linkMesasExamen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkMesasExamen_LinkClicked);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 399);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(707, 399);
+            this.Controls.Add(this.linkMesasExamen);
+            this.Controls.Add(this.tab);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
-            this.tabControl1.ResumeLayout(false);
+            this.tab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -248,5 +275,7 @@
         private System.Windows.Forms.Button btnMateriaAgregar;
         private System.Windows.Forms.ListBox lbMaterias;
         private System.Windows.Forms.Button btnAlumnoAgregar;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.LinkLabel linkMesasExamen;
     }
 }
