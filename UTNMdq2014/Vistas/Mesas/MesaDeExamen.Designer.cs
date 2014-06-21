@@ -1,4 +1,4 @@
-﻿namespace UTNMdq2014.Vistas
+﻿namespace UTNMdq2014.Vistas.Mesas
 {
     partial class MesaDeExamen
     {
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.lbMesas = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbVocal2 = new System.Windows.Forms.TextBox();
             this.tbVocal1 = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbInscriptos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.rtObservaciones = new System.Windows.Forms.RichTextBox();
+            this.rtbObservaciones = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -65,18 +65,21 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAlumnos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(406, 272);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvAlumnos.AllowUserToAddRows = false;
+            this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlumnos.Location = new System.Drawing.Point(6, 107);
+            this.dgvAlumnos.Name = "dgvAlumnos";
+            this.dgvAlumnos.ReadOnly = true;
+            this.dgvAlumnos.Size = new System.Drawing.Size(406, 272);
+            this.dgvAlumnos.TabIndex = 0;
             // 
             // lbMesas
             // 
@@ -97,7 +100,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblFecha);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbVocal2);
             this.groupBox1.Controls.Add(this.tbVocal1);
@@ -111,14 +114,14 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // label5
+            // lblFecha
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(297, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "labelFecha";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(297, 38);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(59, 13);
+            this.lblFecha.TabIndex = 9;
+            this.lblFecha.Text = "labelFecha";
             // 
             // label4
             // 
@@ -186,10 +189,10 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.tbInscriptos);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.rtObservaciones);
+            this.groupBox2.Controls.Add(this.rtbObservaciones);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvAlumnos);
             this.groupBox2.Location = new System.Drawing.Point(172, 37);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(420, 521);
@@ -324,13 +327,13 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Inscriptos:";
             // 
-            // rtObservaciones
+            // rtbObservaciones
             // 
-            this.rtObservaciones.Location = new System.Drawing.Point(96, 385);
-            this.rtObservaciones.Name = "rtObservaciones";
-            this.rtObservaciones.Size = new System.Drawing.Size(316, 54);
-            this.rtObservaciones.TabIndex = 5;
-            this.rtObservaciones.Text = "";
+            this.rtbObservaciones.Location = new System.Drawing.Point(96, 385);
+            this.rtbObservaciones.Name = "rtbObservaciones";
+            this.rtbObservaciones.Size = new System.Drawing.Size(316, 54);
+            this.rtbObservaciones.TabIndex = 5;
+            this.rtbObservaciones.Text = "";
             // 
             // label6
             // 
@@ -414,7 +417,7 @@
             this.Controls.Add(this.label15);
             this.Name = "MesaDeExamen";
             this.Text = "MesaDeExamen";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -426,11 +429,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAlumnos;
         private System.Windows.Forms.ListBox lbMesas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbVocal2;
         private System.Windows.Forms.TextBox tbVocal1;
@@ -440,7 +443,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbInscriptos;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RichTextBox rtObservaciones;
+        private System.Windows.Forms.RichTextBox rtbObservaciones;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbDecano;
         private System.Windows.Forms.Label label13;

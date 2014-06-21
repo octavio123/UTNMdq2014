@@ -17,6 +17,8 @@ namespace UTNMdq2014.Modelos
 
         public List<Examen> Examenes { get; set; }
 
+        public Legajo() {}
+
         public override string ToString()
         {
             if (Plan != null)

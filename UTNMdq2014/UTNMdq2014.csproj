@@ -11,7 +11,8 @@
     <RootNamespace>UTNMdq2014</RootNamespace>
     <AssemblyName>UTNMdq2014</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -30,7 +31,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -49,10 +50,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimpleCrypto">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +72,10 @@
     <Compile Include="Datos\MateriasRepositorio.cs" />
     <Compile Include="Datos\ProfesoresRepositorio.cs" />
     <Compile Include="Datos\Repositorio.cs" />
+    <Compile Include="Datos\UsuarioRepositorio.cs" />
+    <Compile Include="Helpers\Asegurar.cs" />
+    <Compile Include="Login\PasswordHash.cs" />
+    <Compile Include="Login\PasswordHashFactory.cs" />
     <Compile Include="Modelos\Alumno.cs" />
     <Compile Include="Modelos\Aula.cs" />
     <Compile Include="Modelos\Carrera.cs" />
@@ -74,7 +83,6 @@
     <Compile Include="Modelos\EstadoContable.cs" />
     <Compile Include="Modelos\Examen.cs" />
     <Compile Include="Modelos\Facultad.cs" />
-    <Compile Include="Modelos\Fecha.cs" />
     <Compile Include="Modelos\Horario.cs" />
     <Compile Include="Modelos\Mesa.cs" />
     <Compile Include="Modelos\Usuario.cs" />
@@ -83,11 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Form1.cs">
+    <Compile Include="Vistas\Administracion\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Vistas\Administracion\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Legajo.cs" />
     <Compile Include="Modelos\Materia.cs" />
@@ -97,16 +105,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modelos\Requisito.cs" />
     <Compile Include="Helpers\Validador.cs" />
-    <Compile Include="Vistas\Login.cs">
+    <Compile Include="Vistas\Administracion\CrearUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Vistas\Administracion\CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\MesaDeExamen.cs">
+    <Compile Include="Vistas\DialogoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\MesaDeExamen.Designer.cs">
+    <Compile Include="Vistas\DialogoLogin.Designer.cs">
+      <DependentUpon>DialogoLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mesas\MesaDeExamen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Mesas\MesaDeExamen.Designer.cs">
       <DependentUpon>MesaDeExamen.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Principal.cs">
@@ -115,42 +129,46 @@
     <Compile Include="Vistas\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\ProfesorAgregar.cs">
+    <Compile Include="Vistas\Alumnos\AlumnoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\ProfesorAgregar.Designer.cs">
+    <Compile Include="Vistas\Alumnos\AlumnoAgregar.Designer.cs">
+      <DependentUpon>AlumnoAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Profesores\ProfesorAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Profesores\ProfesorAgregar.Designer.cs">
       <DependentUpon>ProfesorAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\ProfesorEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\ProfesorEditar.Designer.cs">
-      <DependentUpon>ProfesorEditar.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Vistas\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\Administracion\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\Administracion\CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\MesaDeExamen.resx">
+    <EmbeddedResource Include="Vistas\DialogoLogin.resx">
+      <DependentUpon>DialogoLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Mesas\MesaDeExamen.resx">
       <DependentUpon>MesaDeExamen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\ProfesorAgregar.resx">
+    <EmbeddedResource Include="Vistas\Alumnos\AlumnoAgregar.resx">
+      <DependentUpon>AlumnoAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Profesores\ProfesorAgregar.resx">
       <DependentUpon>ProfesorAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\ProfesorEditar.resx">
-      <DependentUpon>ProfesorEditar.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

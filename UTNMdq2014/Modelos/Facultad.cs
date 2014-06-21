@@ -7,6 +7,6 @@ namespace UTNMdq2014.Modelos
 {
     public class Facultad
     {
-
+        public static string Decano { get; set; }
     }
 }

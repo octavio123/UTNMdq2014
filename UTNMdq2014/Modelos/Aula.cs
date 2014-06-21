@@ -20,19 +20,19 @@ namespace UTNMdq2014.Modelos
 
         #region Propiedades
 
-        public DescripcionAula Descripcion { get; protected set; }
+        public DescripcionAula Descripcion { get; set; }
 
-        public string Nombre { protected set { nombre = value; } get { return nombre; } }
+        public string Nombre { set { nombre = value; } get { return nombre; } }
 
-        public int Capacidad { protected set { capacidad = value; } get { return capacidad; } }
+        public int Capacidad { set { capacidad = value; } get { return capacidad; } }
 
-        public int Computadoras { protected set { cantidadComputadoras = value; } get { return cantidadComputadoras; } }
+        public int Computadoras { set { cantidadComputadoras = value; } get { return cantidadComputadoras; } }
 
-        public bool Proyector { protected set { proyector = value; } get { return proyector; } }
+        public bool Proyector { set { proyector = value; } get { return proyector; } }
 
-        public int Piso { protected set { piso = value; } get { return piso; } }
+        public int Piso { set { piso = value; } get { return piso; } }
 
-        public string Sector { protected set { sector = value; } get { return sector; } }
+        public string Sector { set { sector = value; } get { return sector; } }
 
         #endregion
 

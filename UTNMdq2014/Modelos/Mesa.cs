@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -7,40 +8,81 @@ namespace UTNMdq2014.Modelos
 {
     public class Mesa
     {
-        private string presidente, vocal1, vocal2, tomo, folio, materia, observaciones, secretario, decano;
-        private int codigo, inscriptos, examinados, aprobados, ausentes, desaprobados;
+        private Materia materia;
 
-        public string Decano { set { decano = value; } get { return decano; } }
-        public string Presidente { set { presidente = value; } get { return presidente; } }
-        public string Vocal1 { set { vocal1 = value; } get { return vocal1; } }
-        public string Vocal2 { set { vocal2 = value; } get { return vocal2; } }
+        public string Decano { set; get; }
+        public string Presidente { set; get; }
+        public string Secretario { get; set; }
+        public string Vocal1 { set; get; }
+        public string Vocal2 { set; get; }
 
-        public string Tomo{ set { tomo = value; } get { return tomo; } }
-        public string Folio { set { folio = value; } get { return folio; } }
-        public string Materia { set { materia = value; } get { return materia; } }
-        public string Observaciones { set { observaciones = value; } get { return observaciones; } }
-        
-        
-        public int Codigo { set { codigo = value; } get { return codigo; } }
-        public int Inscriptos { set { inscriptos = value; } get { return inscriptos; } }
-        public int Examinados{ set { examinados = value; } get { return examinados; } }
-        public int Aprobados { set { aprobados= value; } get { return aprobados; } }
-        public int Ausentes { set { ausentes = value; } get { return ausentes; } }
-        public int Desaprobados { set { desaprobados= value; } get { return desaprobados; } }
-        
-        public DateTime Fecha { protected set; get; }
+        public string Tomo { set; get; }
+        public string Folio { set; get; }
+        public Materia Materia { set; get; }
+        public string Observaciones { set; get; }
 
+
+        public int Codigo { set; get; }
+        public int Inscriptos { set; get; }
+        public int Examinados { set; get; }
+        public int Aprobados { set; get; }
+        public int Ausentes { set; get; }
+        public int Desaprobados { set; get; }
+
+        public DateTime Fecha { set; get; }
+
+        public BindingList<Alumno> Alumnos { get; set; }
 
         public Mesa()
         { 
         }
 
-        public Mesa(, List<Alumno> alumnos)
-        { 
-            
+        public Mesa(string tomo, string folio, int codigo, Materia materia, List<Alumno> alumnos, DateTime fecha)
+        {
+            Tomo = tomo;
+            Folio = folio;
+            Codigo = codigo;
+            Decano = Facultad.Decano;
+            Alumnos = new BindingList<Alumno>(alumnos);
+            Fecha = fecha;
+            Materia = materia;
         }
-        
-        
-        
+
+        public void SetVocales(Profesor[] profesores)
+        {
+            if (profesores == null)
+            {
+                throw new ArgumentNullException("profesores");
+            }
+            if (profesores.Length < 2)
+            {
+                throw new ArgumentOutOfRangeException("profesores", "Se deben elegir dos profesores para los puestos de vocales.");
+            }
+
+            if (Vocal1 != "" && Vocal2 != "")
+            {
+                Vocal1 = profesores[0].Nombre;
+                Vocal2 = profesores[1].Nombre;
+            }
+        }
+
+        public void SetPresidente(Profesor presidente)
+        {
+            if (presidente == null)
+            {
+                throw new ArgumentNullException("presidente");
+            }
+
+            Presidente = presidente.Nombre;
+        }
+        public void SetSecretario(Profesor secretario)
+        {
+            if (secretario == null)
+            {
+                throw new ArgumentNullException("secretario");
+            }
+
+            Presidente = secretario.Nombre;
+        }
     }
 }

@@ -7,11 +7,11 @@ namespace UTNMdq2014.Modelos
 {
     public class Carrera
     {
-        public int CarreraId { get; protected set; }
+        public int CarreraId { get; set; }
         
-        public List<PlanEstudio> Planes { get; protected set; }
+        public List<PlanEstudio> Planes { get; set; }
         
-        public PlanEstudio PlanActual { get; protected set; }
+        public PlanEstudio PlanActual { get; set; }
 
         private string nombre;
         public string Nombre
@@ -36,6 +36,7 @@ namespace UTNMdq2014.Modelos
             set;
         }
 
+        public Carrera() {}
         public Carrera(PlanEstudio plan)
         {
             if (plan == null)

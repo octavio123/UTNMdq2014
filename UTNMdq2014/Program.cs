@@ -15,7 +15,7 @@ namespace UTNMdq2014
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vistas.Login());
+            Application.Run(new Vistas.DialogoLogin());
         }
     }
 }

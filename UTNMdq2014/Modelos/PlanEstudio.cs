@@ -8,15 +8,15 @@ namespace UTNMdq2014.Modelos
 {
     public class PlanEstudio
     {
-        public int PlanEstudioId { get; protected set; }
+        public int PlanEstudioId { get; set; }
 
         private List<Materia> materias;
 
-        public Dictionary<Materia, List<Requisito> > Correlatividades { get; protected set; }
+        public Dictionary<Materia, List<Requisito> > Correlatividades { get; set; }
 
-        public int Año { get; protected set; }
+        public int Año { get; set; }
 
-        public EstadoContable EstadoContable { get; protected set; }
+        public EstadoContable EstadoContable { get; set; }
 
         public PlanEstudio(List<Materia> listaMaterias)
         {
@@ -24,8 +24,10 @@ namespace UTNMdq2014.Modelos
             Correlatividades = new Dictionary<Materia, List<Requisito>>();
         }
 
-        public PlanEstudio() : this(new List<Materia>())
+        public PlanEstudio()
         {
+            materias = new List<Materia>();
+            Correlatividades = new Dictionary<Materia, List<Requisito>>();
         }
 
 

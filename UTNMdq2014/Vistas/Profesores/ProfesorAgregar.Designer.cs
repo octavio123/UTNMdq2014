@@ -1,4 +1,4 @@
-﻿namespace UTNMdq2014.Vistas
+﻿namespace UTNMdq2014.Vistas.Profesores
 {
     partial class ProfesorAgregar
     {
@@ -209,10 +209,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTelefono;

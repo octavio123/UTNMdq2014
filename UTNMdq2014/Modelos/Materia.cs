@@ -15,13 +15,13 @@ namespace UTNMdq2014.Modelos
 
         #region Propiedades
 
-        public int MateriaId { get; protected set; }
+        public int MateriaId { get; set; }
 
-        public PlanEstudio Plan { get; protected set; }
+        public PlanEstudio Plan { get; set; }
 
-        public List<Examen> Examenes { get; protected set; }
+        public List<Examen> Examenes { get; set; }
 
-        public Horario Horario { get; protected set; }
+        public Horario Horario { get; set; }
 
         /// <summary>
         /// Calcula el promedio que se obtubo en la materia.
@@ -73,7 +73,7 @@ namespace UTNMdq2014.Modelos
         public string Nombre
         {
             get { return nombre; }
-            protected set
+            set
             {
                 if (Validador.EsNombreValido(value))
                 {
@@ -92,9 +92,9 @@ namespace UTNMdq2014.Modelos
             set;
         }
 
-        public int CargaHoraria { get; protected set; }
+        public int CargaHoraria { get; set; }
 
-        public int HorasCursadas { get; protected set; }
+        public int HorasCursadas { get; set; }
         
         #endregion
 

@@ -16,17 +16,21 @@ namespace UTNMdq2014.Modelos
             set
             {
                 if (Validador.EsTelefonoValido(value))
+                {
                     telefono = value;
+                }
                 else
+                {
                     throw new ArgumentException("telefono", "El valor especificado es inválido.");
+                }
             }
 
         }
         
-        public string Dni
+        public string DNI
         {
-            get {return dni;}
-            set {dni = value;}
+            get { return dni; }
+            set { dni = value; }
         }
 
         public string Email
@@ -35,9 +39,13 @@ namespace UTNMdq2014.Modelos
             set
             {
                 if (Validador.EsEmailValido(value))
+                {
                     email = value;
+                }
                 else
+                {
                     throw new ArgumentException("email", "El valor especificado es inválido.");
+                }
             }
 
         }
@@ -47,15 +55,19 @@ namespace UTNMdq2014.Modelos
             set
             {
                 if (Validador.EsNombreValido(value))
+                {
                     nombre = value;
+                }
                 else
+                {
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");
+                }
             }
         }
 
-        public Fecha Nacimiento { get; set; }
+        public DateTime Nacimiento { get; set; }
         
-        public Fecha Ingreso { get; set; }
+        public DateTime Ingreso { get; set; }
 
         public int AlumnoId { get; set; }
 
@@ -65,24 +77,31 @@ namespace UTNMdq2014.Modelos
 
         public Alumno()
         {
+            Nacimiento = Ingreso = DateTime.Now;
         }
 
-        public Alumno(string nombre, string telefono, string email,
-                      Fecha nacimiento, Fecha ingreso)
+        public Alumno ( string nombre, string telefono, string email,
+                      DateTime nacimiento, DateTime ingreso )
         {
             Nombre = nombre;
             Telefono = telefono;
             Email = email;
             Nacimiento = nacimiento;
             Ingreso = ingreso;
+            Legajos = new List<Legajo>();
         }
 
         public Alumno(Alumno otro)
-            : this(otro.Nombre, otro.Telefono, otro.Email,
-                   otro.Nacimiento, otro.Ingreso)
+            : this( otro.Nombre, otro.Telefono, otro.Email,
+                   otro.Nacimiento, otro.Ingreso )
         {
+            Legajos = otro.Legajos;
         }
 
+        /// <summary>
+        /// Añade un legajo asociado al alumno.
+        /// </summary>
+        /// <param name="legajo">Un <see cref="Legajo"/>.</param>
         public void AñadirLegajo(Legajo legajo)
         {
             if (legajo == null)
@@ -90,8 +109,7 @@ namespace UTNMdq2014.Modelos
                 string message = "El legajo a agregar no puede ser nulo.";
                 throw new ArgumentNullException("legajo", message);
             }
-            if (Legajos == null)
-                Legajos = new List<Legajo>();
+
             Legajos.Add(legajo);
         }
 

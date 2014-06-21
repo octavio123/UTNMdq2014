@@ -1,6 +1,6 @@
 ﻿namespace UTNMdq2014.Vistas
 {
-    partial class Login
+    partial class DialogoLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblClave = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbContraseña = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,7 +57,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(55, 16);
             this.lblUsuario.TabIndex = 2;
             this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblClave
             // 
@@ -69,20 +68,20 @@
             this.lblClave.TabIndex = 3;
             this.lblClave.Text = "Clave";
             // 
-            // textBox1
+            // tbUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(265, 107);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 4;
+            this.tbUsername.Location = new System.Drawing.Point(265, 107);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(146, 20);
+            this.tbUsername.TabIndex = 4;
             // 
-            // textBox2
+            // tbPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(265, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.tbContraseña.Location = new System.Drawing.Point(265, 162);
+            this.tbContraseña.Name = "tbContraseña";
+            this.tbContraseña.Size = new System.Drawing.Size(146, 20);
+            this.tbContraseña.TabIndex = 5;
+            this.tbContraseña.UseSystemPasswordChar = true;
             // 
             // btnEnviar
             // 
@@ -110,8 +109,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 280);
             this.Controls.Add(this.btnEnviar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbContraseña);
+            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label1);
@@ -132,8 +131,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblClave;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbContraseña;
         private System.Windows.Forms.Button btnEnviar;
     }
 }

@@ -17,22 +17,30 @@ namespace UTNMdq2014.Modelos
             set
             {
                 if (Validador.EsTelefonoValido(value))
+                {
                     telefono = value;
+                }
                 else
+                {
                     throw new ArgumentException("telefono", "El valor especificado es inválido.");
+                }
             }
 
         }
 
         public string Email 
         { 
-            get { return email; } 
-            set 
-            { 
+            get { return email; }
+            set
+            {
                 if (Validador.EsEmailValido(value))
-                    email = value; 
+                {
+                    email = value;
+                }
                 else
+                {
                     throw new ArgumentException("email", "El valor especificado es inválido.");
+                }
             }
  
         }
@@ -42,20 +50,27 @@ namespace UTNMdq2014.Modelos
             set
             {
                 if (Validador.EsNombreValido(value))
+                {
                     nombre = value;
+                }
                 else
+                {
                     throw new ArgumentException("nombre", "El valor especificado es inválido.");
+                }
             }
         }
-        public virtual Fecha Nacimiento { get; set; }
-        public virtual Fecha Ingreso { get; set; }
+
+        public DateTime Nacimiento { get; set; }
+        public DateTime Ingreso { get; set; }
 
         public Profesor()
         {
+            Nacimiento = DateTime.Now;
+            Ingreso = DateTime.Now;
         }
 
-        public Profesor(string nombre, string telefono, string email = null, 
-                        Fecha nacimiento = null, Fecha ingreso = null)
+        public Profesor(string nombre, string telefono, string email, 
+                        DateTime nacimiento, DateTime ingreso)
         {
             Nombre = nombre;
             Telefono = telefono;
