@@ -7,6 +7,7 @@ namespace UTNMdq2014.Modelos
 {
     public class Curso
     {
+        public List<Horario> Horarios { get; set; }
         public List<Profesor> Profesores { get; set; }
         public List<Alumno> Alumnos { get; set; }
         public Aula Aula { get; set; }
